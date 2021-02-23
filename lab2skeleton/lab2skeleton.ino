@@ -34,7 +34,7 @@ imuData_t imuData;
 imuDataScaled_t imuDataScaled;
 
 /********************************* TASK 2 *********************************/
-// Refer to "Table 12. Transfer when master is writing one byte to slave" in page 35 
+// Refering to "Table 12. Transfer when master is writing one byte to slave" in page 35 
 // of the datasheet, complete this function, where
 // devAddr      is the 7-bit i2c address of the IMU
 // regAddr      is the 8-bit address of the register to write into
@@ -43,22 +43,6 @@ imuDataScaled_t imuDataScaled;
 //                                          Wire.write(const uint8_t *data, size_t quantity)
 //                                          Wire.endTransmission()
 void writeByteToRegister(byte devAddr, byte regAddr, byte data) {
-
-}
-
-/********************************* TASK 5 *********************************/
-// Refer to "Table 15. Transfer when master is writing one byte to slave" in page 36 
-// of the datasheet, complete this function, where
-// devAddr      is the 7-bit i2c address of the IMU
-// regAddr      is the 8-bit address of the register to start reading from
-// data         is an array of bytes where the data read from the IMU will be stored into
-// length       is the amount of bytes to read from the IMU
-// You might find these functions useful:   Wire.beginTransmission(byte)
-//                                          Wire.write(byte)
-//                                          Wire.endTransmission()
-//                                          Wire.requestFrom(uint8_t address, size_t quantity)
-//                                          Wire.readBytes(uint8_t *buffer, size_t length)
-void readBytesFromRegisters(byte devAddr, byte regAddr, byte *data, int length) {
 
 }
 
@@ -79,14 +63,30 @@ void setup() {
     writeByteToRegister(IMU_I2C_ADDR, , );
 }
 
+/********************************* TASK 5 *********************************/
+// Refering to "Table 15. Transfer when master is receiving (reading) multiple bytes of data from slave" 
+// in page 36 of the datasheet, complete this function, where
+// devAddr      is the 7-bit i2c address of the IMU
+// regAddr      is the 8-bit address of the register to start reading from
+// data         is an array of bytes where the data read from the IMU will be stored into
+// length       is the amount of bytes to read from the IMU
+// You might find these functions useful:   Wire.beginTransmission(byte)
+//                                          Wire.write(byte)
+//                                          Wire.endTransmission()
+//                                          Wire.requestFrom(uint8_t address, size_t quantity)
+//                                          Wire.readBytes(uint8_t *buffer, size_t length)
+void readBytesFromRegisters(byte devAddr, byte regAddr, byte *data, int length) {
+
+}
+
 void loop() {
     static unsigned long lastTime = 0;
     if (millis() - lastTime > SAMPLING_TIME) {
         lastTime = millis();
         
         /********************************* TASK 6 *********************************/
-        // Starting from register OUTX_L_G, read 12 bytes of data, so that data from
-        // OUTX_L_G to OUTZ_H_XL is stored the rawData array.
+        // Starting from register OUTX_L_G, read 12 bytes of data, and store the data from
+        // register OUTX_L_G to OUTZ_H_XL into the rawData array.
         // Refer to page 65 of the datasheet
         readBytesFromRegisters(IMU_I2C_ADDR, , rawData, SENSOR_DATA_LEN);
 
