@@ -20,4 +20,4 @@ The datasheet is quite long, but the comments given in the skeleton code will na
 
 ## Bonus challenge
 
-Can you accomplish the ```read data from imu``` operation in task 6 and ```combine and store rawData into imuData``` operation in task 7 with just one line of code?
+Can you accomplish the ```read data from imu``` operation in task 6 and ```combine and store rawData into imuData``` operation in task 7 with just one line of code, without creating new functions? You may change the definition of imuData_t.
