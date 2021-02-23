@@ -17,3 +17,7 @@ The focus of this lab is to write a driver for the on-board IMU (LSM6DS3) on the
 You can find the datasheet [here](https://www.st.com/resource/en/datasheet/lsm6ds3.pdf).
 
 The datasheet is quite long, but the comments given in the skeleton code will narrow down the pages you have to read on order to finish each task.
+
+## Bonus challenge
+
+Can you accomplish the ```read data from imu``` operation in task 6 and ```combine and store rawData into imuData``` operation in task 7 with just one line of code?
