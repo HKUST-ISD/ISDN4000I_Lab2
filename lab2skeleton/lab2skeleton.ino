@@ -72,7 +72,7 @@ void setup() {
 // length       is the amount of bytes to read from the IMU
 // You might find these functions useful:   Wire.beginTransmission(byte)
 //                                          Wire.write(byte)
-//                                          Wire.endTransmission()
+//                                          Wire.endTransmission(bool)
 //                                          Wire.requestFrom(uint8_t address, size_t quantity)
 //                                          Wire.readBytes(uint8_t *buffer, size_t length)
 void readBytesFromRegisters(byte devAddr, byte regAddr, byte *data, int length) {
@@ -90,7 +90,7 @@ void loop() {
         // Refer to page 65 of the datasheet
         readBytesFromRegisters(IMU_I2C_ADDR, , rawData, SENSOR_DATA_LEN);
 
-        // Print all data in the rawData array 
+        // Print all the data in the rawData array 
 
 
         /********************************* TASK 7 *********************************/
@@ -98,7 +98,7 @@ void loop() {
         // You can access the storage elements of imuData like this: imuData.gyro[0] = someNum,
         // where 0 = x axis, 1 = y axis, 2 = z axis
 
-        // Print the six datum in imuData 
+        // Print all the data in the imuData struct
 
 
         /********************************* TASK 8 *********************************/
@@ -106,7 +106,7 @@ void loop() {
         // into imuDataScaled, so that the gyro data is stored in unit of deg per second, 
         // and accel data is stored in unit of g (Earth's gravitation acceleration constant)
 
-        // Print the six datum in imuDataScaled
+        // Print all the data in the imuDataScaled struct
         
 
         Serial.println();
